@@ -1,0 +1,17 @@
+.user-search {
+    margin-top: 5%;
+    border-radius: 15px;
+    box-shadow: 0 1px 0 #414d5e;
+    color: #89a;
+    border: none;
+    background-color: #2c3440;
+    font-family: Graphik-Regular-Web,sans-serif;
+    font-size: 12px;
+    height: 16px;
+    line-height: 1.30769231;
+    padding: 6px 30px 6px 10px;
+}
+
+.user-search:focus {
+    background-color: white;
+}

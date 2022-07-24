@@ -1,0 +1,22 @@
+{
+    "name": "Letterboxd List Search",
+    "description": "Allows you to search lists on letterboxd. Works better on smaller lists (< 2000) but will work on any list if you let the page load",
+    "icons": {
+        "16": "searchlogo16.png",
+        "32": "searchlogo32.png",
+        "48": "searchlogo48.png",
+        "128": "searchlogo128.png"
+      },
+    "version": "0.1",
+    "manifest_version": 3,
+
+    "content_scripts":
+    [
+        {
+            "matches":["https://letterboxd.com/*/list/*"],
+            "exclude_matches": ["https://letterboxd.com/*/list/*/page*"],
+            "js":["content.js"],
+            "css":["style.css"]
+        }
+    ]
+}
