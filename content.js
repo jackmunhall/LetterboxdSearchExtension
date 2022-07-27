@@ -42,20 +42,30 @@ async function getAllFilms() {
 }
 
 // list of movies on current page
-var toAppend = document.querySelector('.js-list-entries')
+let toAppend = document.querySelector('.js-list-entries')
+console.log(toAppend)
+
 
 // when the user presses enter key on the search box
 searchbar.addEventListener('keypress', e => {
+    console.log(toAppend)
     if (e.key == "Enter") {
         // searches for movies on first page, removes them if don't match user search
         items.forEach(element => {
             let name = element.childNodes[1].dataset.filmName
             if (!name) {
                 element.remove()
+                toAppend = document.querySelector('.js-list-entries')
             } else {
                 name = name.toLowerCase()
                 if (!name.includes(e.target.value.toLowerCase())) {
                     element.remove()
+                    toAppend = document.querySelector('.js-list-entries')
+                } else {
+                    if (!toAppend.contains(element)) {
+                        toAppend.appendChild(element)
+                        toAppend = document.querySelector('.js-list-entries')
+                    }
                 }
             }
         })
@@ -65,7 +75,14 @@ searchbar.addEventListener('keypress', e => {
                 let name = element.querySelector('div > img').alt.toLowerCase()
                 if (name.includes(e.target.value.toLowerCase())) {
                     toAppend.appendChild(element)
-                } 
+                    toAppend = document.querySelector('.js-list-entries')
+                } else {
+                    if (toAppend.contains(element)) {
+                        console.log('wtf')
+                        element.remove()
+                        toAppend = document.querySelector('.js-list-entries')
+                    }
+                }
             })
         })
     }
