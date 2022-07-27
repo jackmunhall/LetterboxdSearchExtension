@@ -48,8 +48,17 @@ console.log(toAppend)
 
 // when the user presses enter key on the search box
 searchbar.addEventListener('keypress', e => {
+    
     console.log(toAppend)
     if (e.key == "Enter") {
+        // if they search for nothing just reset page
+        if (e.target.value == "") {
+            while (toAppend.hasChildNodes()) {
+                toAppend.removeChild(toAppend.lastChild)
+            }
+            items.forEach(item => toAppend.appendChild(item))
+            return;
+        }
         // searches for movies on first page, removes them if don't match user search
         items.forEach(element => {
             let name = element.childNodes[1].dataset.filmName
