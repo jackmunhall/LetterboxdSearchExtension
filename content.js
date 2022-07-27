@@ -43,13 +43,10 @@ async function getAllFilms() {
 
 // list of movies on current page
 let toAppend = document.querySelector('.js-list-entries')
-console.log(toAppend)
-
 
 // when the user presses enter key on the search box
 searchbar.addEventListener('keypress', e => {
     
-    console.log(toAppend)
     if (e.key == "Enter") {
         // if they search for nothing just reset page
         if (e.target.value == "") {
@@ -59,6 +56,7 @@ searchbar.addEventListener('keypress', e => {
             items.forEach(item => toAppend.appendChild(item))
             return;
         }
+
         // searches for movies on first page, removes them if don't match user search
         items.forEach(element => {
             let name = element.childNodes[1].dataset.filmName
@@ -78,6 +76,7 @@ searchbar.addEventListener('keypress', e => {
                 }
             }
         })
+
         // searches for movies on subsequent pages, adds them to current page if matches user search
         nodelists.forEach(item => {
             item.forEach(element => {
@@ -87,7 +86,6 @@ searchbar.addEventListener('keypress', e => {
                     toAppend = document.querySelector('.js-list-entries')
                 } else {
                     if (toAppend.contains(element)) {
-                        console.log('wtf')
                         element.remove()
                         toAppend = document.querySelector('.js-list-entries')
                     }
