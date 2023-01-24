@@ -1,4 +1,4 @@
-# letterboxd-search-extension
+# LetterboxdSearchExtension
 <h1>Letterboxd List Search</h1>
 <p>Have been using this extension for a little while myself and figured I'd share it as I've heard some people say they want the feature. Added a searchbar to letterboxd lists that allows you to enter a movie and search for it. use it here: https://chrome.google.com/webstore/detail/letterboxd-list-search/jjakamoambopapdcpondjnlkdajcfnno?hl=en&authuser=0</p>
 
