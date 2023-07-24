@@ -1,6 +1,6 @@
 {
     "name": "Letterboxd List Search",
-    "description": "Allows you to search lists on letterboxd. Works better on smaller lists (< 2000) but will work on any list if you let the page load",
+    "description": "Allows you to search lists on letterboxd",
     "icons": {
         "16": "./logo/searchlogo16.png",
         "32": "./logo/searchlogo32.png",
