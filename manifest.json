@@ -7,7 +7,7 @@
         "48": "./logo/searchlogo48.png",
         "128": "./logo/searchlogo128.png"
       },
-    "version": "0.2",
+    "version": "1.0",
     "manifest_version": 3,
 
     "content_scripts":

@@ -18,13 +18,20 @@ let parser = new DOMParser();
 
 // function that returns movie DOM elements given page number i
 async function getDom(i) {
-   let xmlhttp = new XMLHttpRequest()
-   xmlhttp.open("GET", `${window.location.href}page/${i}/`, false) 
-   xmlhttp.send()
-   let parsed = parser.parseFromString(xmlhttp.responseText, "text/html")
-   let movies = parsed.querySelectorAll('.js-list-entries > li')
-   if (movies.length == 0) return undefined
-   return movies
+//    let xmlhttp = new XMLHttpRequest()
+//    xmlhttp.open("GET", `${window.location.href}page/${i}/`, false) 
+//    xmlhttp.send()
+//    let parsed = parser.parseFromString(xmlhttp.responseText, "text/html")
+//    let movies = parsed.querySelectorAll('.js-list-entries > li')
+//    if (movies.length == 0) return undefined
+    const response = await fetch(`${window.location.href}page/${i}/`)
+    const html = await response.text()
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    let movies = doc.querySelectorAll('.js-list-entries > li')
+    console.log(i, movies)
+    if (movies.length == 0) return undefined
+    return movies
 }
 
 // "items" = movies from first page, nodelists will contain movies from all subsequent pages
